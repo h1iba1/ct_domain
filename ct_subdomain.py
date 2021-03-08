@@ -57,7 +57,7 @@ def file_exec(results):
 
     tar_file.close()
     domain_file.close()
-    print('获取域名：' + str(domain) + '个' + '\n')
+    print('获取域名：' + str(domain) + '个')
     print('获取子域名：' + str(subdomain) + '个' + '\n')
 
 
@@ -65,7 +65,7 @@ def get_target_file():
     # tar_file = open('target.txt', 'r')
     with open('target.txt', 'r') as tar_file:
         for target in tar_file.readlines():
-            print("开始进行" + target + "爆破" + '\n')
+            print("开始进行" + target.strip('\n') + "爆破:")
             file_exec(get_result(target))
             time.sleep(0.1)
     tar_file.close()
@@ -78,7 +78,7 @@ def display():
 
 if __name__ == '__main__':
     target = sys.argv[1]
-    print("开始进行" + target.strip('\n') + "爆破" + '\n')
+    print("开始进行" + target.strip('\n') + "爆破:")
     file_exec(get_result(target))
     print('开始进行多级域名爆破' + '\n')
     get_target_file()
